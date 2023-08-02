@@ -16,6 +16,12 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import com.test.neosoft.practice.Address;
+import com.test.neosoft.practice.DepartmentCloneable;
+import com.test.neosoft.practice.Employee;
+import com.test.neosoft.practice.MarksDeepCopyCloneable;
+import com.test.neosoft.practice.Singleton;
+
 public class TestMain {
 	
 //	// Method for factorial recursion
@@ -143,7 +149,86 @@ public class TestMain {
 //		List<Integer> greater = asList.stream().filter(s -> s > 15).collect(Collectors.toList());
 //		greater.addAll(smallThanFifteen);
 //		System.out.println(greater);
-//		-------------------------------------------------------
+//		-------------------------------------------------------	
+//
+//		//Shallow Copy
+//		try {
+//			DepartmentCloneable.test();
+//		} catch (CloneNotSupportedException e) {
+//			System.out.println("error");
+//			e.printStackTrace();
+//		}
+//		
+//		//Deep Copy
+//		try {
+//			MarksDeepCopyCloneable.test();
+//		} catch (CloneNotSupportedException e) {
+//			System.out.println("error");
+//			e.printStackTrace();
+//		}
+//      ------------------------------------------------------------------	
+		
+//		// Breaks Immutability
+//		Address address = new Address("street 1", "city X");
+//		List<String> phoneNumbers = new ArrayList<>();
+//		phoneNumbers.add("123456");
+//		phoneNumbers.add("456789");
+//		Map<String, String> metadata = new HashMap<>();
+//		metadata.put("hobby", "Watching Movies");
+//		// Declare the employee
+//		Employee e = new Employee("John", 23, address, phoneNumbers, metadata);
+//		
+//		// if Update details
+//		e.getPhoneNumbers().add("345123");
+//		e.getMetadata().put("skill", "Java");
+//		e.getMetadata().put("designation", "HR");
+//
+//		System.out.println(e.getPhoneNumbers());
+//		System.out.println(e.getMetadata());
+//		
+//		// also if Delete Details
+//		
+//		e.getMetadata().remove("hobby");
+//		e.getPhoneNumbers().remove("123456");
+//		
+//		//if defined setters
+//		e.getAddress().setCity("c3");
+//		e.getAddress().setStreet("s3");
+		
+		
+//		//Not able to break Immutability returns original object
+//		Address address = new Address("street 1", "city X");
+//		List<String> phoneNumbers = new ArrayList<>();
+//		phoneNumbers.add("123456");
+//		phoneNumbers.add("456789");
+//		Map<String, String> metadata = new HashMap<>();
+//		metadata.put("hobby", "Watching Movies");
+//
+//		// Declare the employee
+//		Employee e = new Employee("John", 23, address, phoneNumbers, metadata);
+//
+//		// Update details
+//		e.getPhoneNumbers().add("345123");
+//		e.getMetadata().put("skill", "Java");
+//		e.getMetadata().put("designation", "HR");
+//
+//		// change address details
+//		e.getAddress().setCity("c3");
+//		e.getAddress().setStreet("s3");
+//
+//		System.out.println(e.getPhoneNumbers());
+//		System.out.println(e.getMetadata());
+//		System.out.println(e.getAddress());
+		
+//		Singleton instance = Singleton.getInstance();
+//		Singleton instance2 = Singleton.getInstance();
+//		System.out.println(instance);
+//		System.out.println(instance2);
+//		Singleton.getSingelton();
+//		----------------------------------------------------------------------
+		
+		
+		
 	}
 
 }
