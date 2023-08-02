@@ -44,3 +44,56 @@ CREATE TABLE Employee (
 
 12) Write an SQL query to print all Employee details from the Employee table order by FIRST_NAME Ascending and DEPARTMENT Descending.
 -> Select * from Employee order by FIRST_NAME asc,DEPARTMENT desc;
+
+13) Write an SQL query to print details for Employees with the first names “Vipul” and “Satish” from the Employee table.
+-> Select * from Employee where FIRST_NAME in ('Vipul','Satish');
+
+14) Write an SQL query to print details of Employees excluding first names, “Vipul” and “Satish” from the Employee table.
+-> Select * from Employee where FIRST_NAME not in ('Vipul','Satish');
+
+15) Write an SQL query to print details of Employees with DEPARTMENT name as “Admin”.
+-> Select * from Employee where DEPARTMENT like 'Admin%';
+
+16) Write an SQL query to print details of the Employees whose FIRST_NAME contains ‘a’.
+-> Select * from Employee where FIRST_NAME like '%a%';
+
+17) Write an SQL query to print details of the Employees whose FIRST_NAME ends with ‘a’.
+-> Select * from Employee where FIRST_NAME like '%a';
+
+18) Write an SQL query to print details of the Employees whose FIRST_NAME ends with ‘h’ and contains six alphabets.
+-> Select * from Employee where FIRST_NAME like '_____h';
+
+19) Write an SQL query to print details of the Employees whose SALARY lies between 100000 and 500000.
+-> Select * from Employee where SALARY between 100000 and 500000;
+
+20) Write an SQL query to print details of the Employees who joined in Feb’2014.
+-> Select * from Employee where year(JOINING_DATE) = 2014 and month(JOINING_DATE) = 2;
+
+21) Write an SQL query to fetch the count of employees working in the department ‘Admin’.
+-> SELECT COUNT(*) FROM Employee WHERE DEPARTMENT = 'Admin';
+
+22) Write an SQL query to fetch Employee names with salaries >= 50000 and <= 100000.
+-> SELECT CONCAT(FIRST_NAME, ' ', LAST_NAME) As Employee_Name, Salary
+	FROM Employee 
+	WHERE Employee_ID IN 
+	(SELECT Employee_ID FROM Employee 
+	WHERE Salary BETWEEN 50000 AND 100000);
+	
+23) Write an SQL query to fetch the no. of Employees for each department in descending order.
+-> SELECT DEPARTMENT, count(Employee_ID) No_Of_Employees 
+	FROM Employee 
+	GROUP BY DEPARTMENT 
+	ORDER BY No_Of_Employees DESC;
+	
+24) Write an SQL query to print details of the Employees who are also Managers.
+-> SELECT DISTINCT W.FIRST_NAME, T.Employee_TITLE
+	FROM Employee W
+	INNER JOIN Title T
+	ON W.Employee_ID = T.Employee_REF_ID
+	AND T.Employee_TITLE in ('Manager');
+	
+25) Write an SQL query to fetch duplicate records having matching data in some fields of a table.
+-> SELECT Employee_TITLE, AFFECTED_FROM, COUNT(*)
+	FROM Title
+	GROUP BY Employee_TITLE, AFFECTED_FROM
+	HAVING COUNT(*) > 1;
