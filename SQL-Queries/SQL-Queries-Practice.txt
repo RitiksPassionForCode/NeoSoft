@@ -97,3 +97,65 @@ CREATE TABLE Employee (
 	FROM Title
 	GROUP BY Employee_TITLE, AFFECTED_FROM
 	HAVING COUNT(*) > 1;
+	
+26) Write an SQL query to show only odd rows from a table.
+-> SELECT * FROM Employee WHERE MOD (Employee_ID, 2) <> 0;
+
+27) Write an SQL query to show only even rows from a table.
+-> SELECT * FROM Employee WHERE MOD (Employee_ID, 2) = 0;
+
+28) Write an SQL query to clone a new table from another table.
+-> CREATE TABLE EmployeeClone LIKE Employee;
+
+29) Write an SQL query to fetch intersecting records of two tables.
+-> (SELECT * FROM Employee)
+	INTERSECT
+	(SELECT * FROM EmployeeClone);
+
+30) Write an SQL query to show records from one table that another table does not have.
+-> SELECT * FROM Employee
+	MINUS
+	SELECT * FROM Title;
+	
+31) Write an SQL query to show the current date and time.
+-> SELECT NOW();
+
+32) Write an SQL query to show the top n (say 10) records of a table.
+-> SELECT * FROM Employee ORDER BY Salary DESC LIMIT 10;
+
+33) Write an SQL query to determine the nth (say n=5) highest salary from a table.
+-> SELECT Salary FROM Employee ORDER BY Salary DESC LIMIT n-1,1;
+
+34) Write an SQL query to determine the 5th highest salary without using the TOP or limit method.
+-> SELECT Salary
+	FROM Employee E1
+	WHERE 4 = (
+	SELECT COUNT( DISTINCT ( E2.Salary ) )
+	FROM Employee W2
+	WHERE E2.Salary >= E1.Salary
+	);
+	
+35) Write an SQL query to fetch the list of employees with the same salary.
+-> Select distinct E.Employee_ID, E.FIRST_NAME, E.Salary 
+	from Employee E, Employee E1 
+	where E.Salary = E1.Salary 
+	and E.Employee_ID != E1.Employee_ID;
+	
+36) Write an SQL query to show the second-highest salary from a table.
+-> Select max(Salary) from Employee where Salary not in (Select max(Salary) from Employee);
+
+37) Write an SQL query to show one row twice in the results from a table.
+-> Select FIRST_NAME, DEPARTMENT from Employee E where E.DEPARTMENT='HR' 
+	union all 
+	select FIRST_NAME, DEPARTMENT from Employee E1 where E1.DEPARTMENT='HR';
+	
+38) Write an SQL query to fetch intersecting records of two tables.
+-> (SELECT * FROM Employee)
+	INTERSECT
+	(SELECT * FROM EmployeeClone);
+
+39) Write an SQL query to fetch the first 50% of records from a table.
+-> SELECT * FROM Employee WHERE Employee_ID <= (SELECT count(Employee_ID)/2 from Employee);
+
+40) Write an SQL query to fetch the departments that have less than five people in them.
+-> SELECT DEPARTMENT, COUNT(Employee_ID) as 'Number of Employees' FROM Employee GROUP BY DEPARTMENT HAVING COUNT(Employee_ID) < 5;
