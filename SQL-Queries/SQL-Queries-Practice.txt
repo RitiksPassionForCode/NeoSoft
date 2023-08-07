@@ -159,3 +159,37 @@ CREATE TABLE Employee (
 
 40) Write an SQL query to fetch the departments that have less than five people in them.
 -> SELECT DEPARTMENT, COUNT(Employee_ID) as 'Number of Employees' FROM Employee GROUP BY DEPARTMENT HAVING COUNT(Employee_ID) < 5;
+
+41) Write an SQL query to show all departments along with the number of people in there.
+-> SELECT DEPARTMENT, COUNT(DEPARTMENT) as 'Number of Employees' FROM Employee GROUP BY DEPARTMENT;
+
+42) Write an SQL query to show the last record from a table.
+-> Select * from Employee where Employee_ID = (SELECT max(Employee_ID) from Employee);
+
+43) Write an SQL query to fetch the first row of a table.
+-> Select * from Employee where Employee_ID = (SELECT min(Employee_ID) from Employee);
+
+44) Write an SQL query to fetch the last five records from a table.
+-> SELECT * FROM Employee WHERE Employee_ID <=5
+	UNION
+	SELECT * FROM (SELECT * FROM Employee W order by W.Employee_ID DESC) AS W1 WHERE W1.Employee_ID <=5;
+	
+45) Write an SQL query to print the name of employees having the highest salary in each department.
+-> SELECT t.DEPARTMENT,t.FIRST_NAME,t.Salary from(SELECT max(Salary) as TotalSalary,DEPARTMENT from Employee group by DEPARTMENT) as TempNew 
+	Inner Join Employee t on TempNew.DEPARTMENT=t.DEPARTMENT 
+	and TempNew.TotalSalary=t.Salary;
+	
+46) Write an SQL query to fetch three max salaries from a table.
+-> SELECT distinct Salary from Employee a WHERE 3 >= (SELECT count(distinct Salary) from Employee b WHERE a.Salary <= b.Salary) order by a.Salary desc;
+
+47) Write an SQL query to fetch three min salaries from a table.
+-> SELECT distinct Salary from Employee a WHERE 3 >= (SELECT count(distinct Salary) from Employee b WHERE a.Salary >= b.Salary) order by a.Salary desc;
+
+48) Write an SQL query to fetch nth max salaries from a table.
+-> SELECT distinct Salary from Employee a WHERE n >= (SELECT count(distinct Salary) from Employee b WHERE a.Salary <= b.Salary) order by a.Salary desc;
+
+49)  Write an SQL query to fetch departments along with the total salaries paid for each of them.
+-> SELECT DEPARTMENT, sum(Salary) from Employee group by DEPARTMENT;
+
+50) Write an SQL query to fetch the names of Employees who earn the highest salary.
+-> SELECT FIRST_NAME, SALARY from Employee WHERE SALARY=(SELECT max(SALARY) from Employee);
