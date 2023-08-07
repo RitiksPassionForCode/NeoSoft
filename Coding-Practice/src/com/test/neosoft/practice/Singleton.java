@@ -27,7 +27,4 @@ public class Singleton implements Serializable, Cloneable {
 		return singelton;
 	}
 
-	public static void getSingelton() {
-		System.out.println("Got Singelton.");
-	}
 }

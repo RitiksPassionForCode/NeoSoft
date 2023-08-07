@@ -21,8 +21,11 @@ public class BookWriter implements Runnable {
 			book.setCompleted(true);
 			System.out.println("Book has been completed now");
 
+//			book.notify();
+//			System.out.println("notify one reader");
+			
 			book.notifyAll();
-			System.out.println("notify one reader");
+			System.out.println("notify all reader");
 
 		}
 	}
