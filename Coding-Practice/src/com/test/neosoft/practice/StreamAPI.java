@@ -45,7 +45,7 @@ public class StreamAPI {
 				// First convert to Character object and then to lowercase
 				.mapToObj(s -> Character.toLowerCase(Character.valueOf((char) s)))
 				// Store count
-				.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))																				
+				.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
 				.entrySet().stream().filter(entry -> entry.getValue() == 1L).map(entry -> entry.getKey()).findFirst()
 				.get();
 		System.out.println(result);
