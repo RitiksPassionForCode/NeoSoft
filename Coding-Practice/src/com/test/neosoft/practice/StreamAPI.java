@@ -18,7 +18,7 @@ public class StreamAPI {
 
 	public static void main(String[] args) {
 
-//		List<Integer> list = Arrays.asList(10, 15, 8, 49, 25, 98, 32);
+		List<Integer> list = Arrays.asList(10, 15, 8, 49, 25, 98, 32);
 //
 //		// Find the list of even no's from given list ( filter )
 //		list.stream().filter(n -> n % 2 == 0).forEach(System.out::println);
@@ -55,6 +55,9 @@ public class StreamAPI {
 //		Optional<Integer> product = list.stream().reduce((a,b) -> a*b);
 //		System.out.println(product.isPresent() ? product.get() : "Empty");
 //		
+		Optional<String> reduce = list.stream().filter(s -> s%2 == 0).map(String::valueOf).reduce((a,b) -> a + b);
+		System.out.println(reduce.isPresent() ? reduce.get() : "Empty");
+		
 //		//Given a list of integers find the largest element  
 //		List<Integer> list = Arrays.asList(10,20,10,55,30,45);
 //		Optional<Integer> greater = list.stream().reduce((s1,s2) -> s1 > s2 ? s1 : s2);

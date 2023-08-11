@@ -226,7 +226,7 @@ public class TestMain {
 //		System.out.println(instance2);
 //		Singleton.getSingelton();
 //		----------------------------------------------------------------------
-				
+
 	}
 
 }
