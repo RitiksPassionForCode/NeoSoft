@@ -55,9 +55,16 @@ public class StreamAPI {
 //		Optional<Integer> product = list.stream().reduce((a,b) -> a*b);
 //		System.out.println(product.isPresent() ? product.get() : "Empty");
 //		
-		Optional<String> reduce = list.stream().filter(s -> s%2 == 0).map(String::valueOf).reduce((a,b) -> a + b);
-		System.out.println(reduce.isPresent() ? reduce.get() : "Empty");
-		
+//		//Given a list of integers perform filter, map and reduce together
+//		Optional<String> reduce = list.stream().filter(s -> s%2 == 0).map(String::valueOf).reduce((a,b) -> a + b);
+//		System.out.println(reduce.isPresent() ? reduce.get() : "Empty");
+//		
+//		//Streams limit and skip function
+//		Stream<Integer> limit = list.stream().limit(2);
+//		Stream<Integer> skip = list.stream().skip(2);
+//		System.out.println(limit);
+//		System.out.println(skip);
+//		
 //		//Given a list of integers find the largest element  
 //		List<Integer> list = Arrays.asList(10,20,10,55,30,45);
 //		Optional<Integer> greater = list.stream().reduce((s1,s2) -> s1 > s2 ? s1 : s2);
@@ -65,13 +72,18 @@ public class StreamAPI {
 //		
 //		// Given the list of integers, find the first element of the list
 //		list.stream().findFirst().ifPresent(System.out::println);
+//		
+//		// Given the list of integers, find the first element of the list using find any()
+//		list.stream().findAny().ifPresent(System.out::println);
+		//when you want a different result then find any should be used in parallel streams
+		list.parallelStream().findAny().ifPresent(System.out::println);
 //
 //		// Given a list of integers, find the total number of elements present in the list
 //		long count = list.stream().distinct().count();
 //		System.out.println(count);
 //
 //		// find the maximum value element present
-//		list.stream().max(Integer::compare).get();
+//		list.stream().max(Integer::compare).get();		
 //
 //		// Given a String, find the first non-repeated character
 //		String input = "Java Hungry Blog Alive is Awesome";
