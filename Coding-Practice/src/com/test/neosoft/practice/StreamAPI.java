@@ -5,10 +5,13 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.function.ToLongFunction;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -18,7 +21,7 @@ public class StreamAPI {
 
 	public static void main(String[] args) {
 
-		List<Integer> list = Arrays.asList(10, 15, 8, 49, 25, 98, 32);
+//		List<Integer> list = Arrays.asList(10, 15, 8, 49, 25, 98, 32);
 //
 //		// Find the list of even no's from given list ( filter )
 //		list.stream().filter(n -> n % 2 == 0).forEach(System.out::println);
@@ -75,32 +78,51 @@ public class StreamAPI {
 //		
 //		// Given the list of integers, find the first element of the list using find any()
 //		list.stream().findAny().ifPresent(System.out::println);
-		//when you want a different result then find any should be used in parallel streams
-		list.parallelStream().findAny().ifPresent(System.out::println);
+//		//when you want a different result then find any should be used in parallel streams
+//		list.parallelStream().findAny().ifPresent(System.out::println);
 //
 //		// Given a list of integers, find the total number of elements present in the list
 //		long count = list.stream().distinct().count();
 //		System.out.println(count);
+//		
+//		//Given a array of names join name and surname with "-"
+//		String[] names = new String [] {"Ritik", "Choudhary"};
+//		String collect = Arrays.stream(names).collect(Collectors.joining("-")); // delimiter
+//		System.out.println(collect);
+//		//with delimiter, suffix and prefix
+//		String collect1 = Arrays.stream(names).collect(Collectors.joining("-", "(", ")"));
+//		System.out.println(collect1);
+//		
+//		//counting
+//		Long count = Arrays.stream(names).collect(Collectors.counting());
+//		System.out.println(count);
+//		
+//		//GroupBy
+//		Map<String, List<Integer>> map = list.stream().collect(Collectors.groupingBy(n -> (n % 2 == 0) ? "Even" : "Odd"));
+//		System.out.println(map);
 //
-//		// find the maximum value element present
+//		// find the maximum and minimum value element present
 //		list.stream().max(Integer::compare).get();		
+//		list.stream().min(Integer::compare).get();
 //
 //		// Given a String, find the first non-repeated character
 //		String input = "Java Hungry Blog Alive is Awesome";
-//
 //		Character result = input.chars() // Stream of String
 //				// First convert to Character object and then to lowercase
 //				.mapToObj(s -> Character.toLowerCase(Character.valueOf((char) s)))
 //				// Store count
 //				.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
-//				.entrySet().stream().filter(entry -> entry.getValue() == 1L).map(entry -> entry.getKey()).findFirst()
+//				.entrySet()
+//				.stream()
+//				.filter(entry -> entry.getValue() == 1L)
+//				.map(entry -> entry.getKey())
+//				.findFirst()
 //				.get();
 //		System.out.println(result);
 //		
 //		//Given a String, find the first repeated character in it
-//		 String input = "Java Hungry Blog Alive is Awesome";
-//
-//         Character result = input.chars() // Stream of String       
+//		String input = "Java Hungry Blog Alive is Awesome";
+//      Character result = input.chars() // Stream of String       
 //                                 .mapToObj(s -> Character.toLowerCase(Character.valueOf((char) s))) // First convert to Character object and then to lowercase         
 //                                 .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting())) //Store the chars in map with count 
 //                                 .entrySet()
@@ -109,14 +131,14 @@ public class StreamAPI {
 //                                 .map(entry -> entry.getKey())
 //                                 .findFirst()
 //                                 .get();
-//			System.out.println(result);
+//		System.out.println(result);
 //		
 //		//Given a list of integers, sort all the values present in it ( Print in forEach style )
-//		 List<Integer> myList = Arrays.asList(10,15,8,49,25,98,98,32,15);
+//		List<Integer> myList = Arrays.asList(10,15,8,49,25,98,98,32,15);
 //
-//         myList.stream()
-//               .sorted()
-//               .forEach(System.out::println);
+//      myList.stream()
+//           .sorted()
+//           .forEach(System.out::println);
 		
 		}
 
