@@ -27,8 +27,8 @@ public class LinkedList {
 	//LinkedList print
 	public void printList() {
 		Node temp = head;
+		System.out.println(temp.value);
 		while(temp.next != null) {
-			System.out.println(temp.value);
 			temp = temp.next;
 			System.out.println(temp.value);
 		}
@@ -59,6 +59,42 @@ public class LinkedList {
 			tail.next = newNode;
 			tail = newNode;
 		}
+		length++;
+	}
+	
+	//LinkedList remove last
+	public Node removeLast() {
+		if(length == 0) {
+			return null;
+		}
+		
+		Node temp = head;
+		Node pre = head;
+		while(temp.next!=null) {
+			pre = temp;
+			temp = temp.next;
+		}
+		
+		tail = pre;
+		tail.next = null;
+		length --;
+		if(length == 0) {
+			head = null;
+			tail = null;
+		}
+		return temp;
+	}
+	
+	//LinkedList Prepend
+	public void prepend(int value) {
+		Node newNode = new Node(value);
+		if(length == 0) {
+			head = newNode;
+			tail = newNode;
+		}
+		
+		newNode.next = head;
+		head = newNode;
 		length++;
 	}
 }
