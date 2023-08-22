@@ -26,6 +26,14 @@ public class Main {
 		list.prepend(8);
 		System.out.println("After prepending an element in list:");
 		list.printList();
+		
+		list.removeFirst();
+		System.out.println("After removing first element in list:");
+		list.printList();
+		
+		System.out.println("Found the searched index in list:");
+		Node node = list.get(0);
+		System.out.println(node.value);
 	}
 
 }
