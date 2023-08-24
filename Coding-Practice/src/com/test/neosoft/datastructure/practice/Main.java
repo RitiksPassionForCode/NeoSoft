@@ -34,6 +34,14 @@ public class Main {
 		System.out.println("Found the searched index in list:");
 		Node node = list.get(0);
 		System.out.println(node.value);
+		
+		System.out.println("After setting the value as 6 at index 0 in list");
+		list.set(0, 6);
+		list.printList();
+		
+		System.out.println("Insering 10 on 2nd index in list:");
+		list.insert(2, 10);
+		list.printList();
 	}
 
 }
