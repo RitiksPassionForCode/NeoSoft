@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class BuildArrayPermutation {
 	
+	//find elements of array according to their index
 	public static int[] buildArray(int[] nums) {
         int [] ans = new int[nums.length];
         for(int i =0; i< nums.length; i++){

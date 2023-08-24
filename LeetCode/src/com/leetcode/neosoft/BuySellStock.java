@@ -2,6 +2,7 @@ package com.leetcode.neosoft;
 
 public class BuySellStock {
 
+	//Max Profit from buy and sell of values in array
 	public static int maxProfit(int[] prices) {
         int min = Integer.MAX_VALUE;
         int overallProfit = 0;
