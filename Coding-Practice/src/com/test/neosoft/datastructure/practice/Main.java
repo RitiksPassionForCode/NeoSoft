@@ -42,6 +42,14 @@ public class Main {
 		System.out.println("Insering 10 on 2nd index in list:");
 		list.insert(2, 10);
 		list.printList();
+		
+		System.out.println("Removing 10 from 2nd index in list:");
+		list.remove(2);
+		list.printList();
+		
+		System.out.println("Reverse the list:");
+		list.reverse();
+		list.printList();
 	}
 
 }
