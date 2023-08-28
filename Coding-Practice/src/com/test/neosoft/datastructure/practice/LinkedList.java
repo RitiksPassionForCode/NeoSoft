@@ -91,10 +91,10 @@ public class LinkedList {
 		if(length == 0) {
 			head = newNode;
 			tail = newNode;
+		} else {
+			newNode.next = head;
+			head = newNode;
 		}
-		
-		newNode.next = head;
-		head = newNode;
 		length++;
 	}
 	
