@@ -92,14 +92,14 @@ public class DoublyLinkedList {
 		length--;
 		return temp;
 	}
-	
-	//DoublyLinkedList removeFirst
+
+	// DoublyLinkedList removeFirst
 	public Node removeFirst() {
-		if(length == 0) {
+		if (length == 0) {
 			return null;
 		}
 		Node temp = head;
-		if(length == 1) {
+		if (length == 1) {
 			head = null;
 			tail = null;
 		} else {
@@ -110,21 +110,78 @@ public class DoublyLinkedList {
 		length--;
 		return temp;
 	}
-	
-	//DoublyLinkedList get By index
+
+	// DoublyLinkedList get By index
 	public Node get(int index) {
-		if(index <= 0 || index >= length) return null;
+		if (index <= 0 || index >= length)
+			return null;
 		Node temp = head;
-		if(index < length/2) {
-			for(int i=0; i<index; i++) {
+		if (index < length / 2) {
+			for (int i = 0; i < index; i++) {
 				temp = temp.next;
 			}
 		} else {
-			for(int i=length-1; i>index; i--) {
+			temp = tail;
+			for (int i = length - 1; i > index; i--) {
 				temp = temp.prev;
 			}
 		}
 		return temp;
 	}
+
+	// DoublyLinkedList set By index
+	public boolean set(int index, int value) {
+		Node temp = get(index);
+		if (temp != null) {
+			temp.value = value;
+			return true;
+		}
+		return false;
+	}
+	
+	//DoublyLinkedList insert
+	public boolean insert(int index, int value) {
+		if(index < 0 || index > length) return false;
+		if(index == 0) {
+			prepend(value);
+			return true;
+		}
+		if(index == length) {
+			append(value);
+			return true;
+		}
+		Node newNode = new Node(value);
+		Node before = get(index-1);
+		Node after = before.next;
+		newNode.next = after;
+		newNode.prev = before;
+		before.next = newNode;
+		after.prev = newNode;
+		length++;
+		return true;
+	}
+	
+	//DoublyLinkedList remove
+	public Node remove(int index) {
+		if(index < 0 || index >= length) return null;
+		if(index == 0) {
+			return removeFirst();
+		}
+		if(index == length-1) {
+			return removeLast();
+		}
+		Node temp = get(index);
+//		General way
+//		Node after = temp.next;
+//		Node before = temp.prev;
+//		Shortcut
+		temp.next.prev = temp.prev;
+		temp.prev.next = temp.next;
+		temp.next = null;
+		temp.prev = null;
+		length--;
+		return temp;
+	}
+
 	
 }

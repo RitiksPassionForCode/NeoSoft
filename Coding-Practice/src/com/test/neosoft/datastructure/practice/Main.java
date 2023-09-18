@@ -1,7 +1,5 @@
 package com.test.neosoft.datastructure.practice;
 
-import javax.print.DocFlavor;
-
 import com.test.neosoft.datastructure.practice.LinkedList.Node;
 
 public class Main {
@@ -74,6 +72,22 @@ public class Main {
 		doublyL.PrintList();
 		System.out.println("After prepending 1 in the list:");
 		doublyL.prepend(1);
+		doublyL.PrintList();
+		
+		System.out.println("Get value of index 1 in the list:");
+		int get = doublyL.get(1).value;
+		System.out.println(get);
+		
+		System.out.println("Set value as 1 on index 1 in the list:");
+		doublyL.set(1,1);
+		doublyL.PrintList();
+		
+		System.out.println("Insert value 2 on index 2 in the list:");
+		doublyL.insert(2,2);
+		doublyL.PrintList();
+		
+		System.out.println("Remove value from index 2 in the list:");
+		doublyL.remove(2);
 		doublyL.PrintList();
 	}
 }
