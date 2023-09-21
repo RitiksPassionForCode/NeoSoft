@@ -53,41 +53,59 @@ public class Main {
 		
 		
 		
-		//DoublyLinkedList
-		DoublyLinkedList doublyL= new DoublyLinkedList(1);
-		System.out.println("The list: ");
-		doublyL.PrintList();
-		System.out.println("After appending elements at last in the list:");
-		doublyL.append(0);
-		doublyL.append(5);
-		doublyL.append(8);
-		doublyL.append(9);
-		doublyL.PrintList();
+//		//DoublyLinkedList
+//		DoublyLinkedList doublyL= new DoublyLinkedList(1);
+//		System.out.println("The list: ");
+//		doublyL.PrintList();
+//		System.out.println("After appending elements at last in the list:");
+//		doublyL.append(0);
+//		doublyL.append(5);
+//		doublyL.append(8);
+//		doublyL.append(9);
+//		doublyL.PrintList();
+//		
+//		System.out.println("After removing first element in the list:");
+//		doublyL.removeFirst();
+//		doublyL.PrintList();
+//		System.out.println("After removing last element in the list:");
+//		doublyL.removeLast();
+//		doublyL.PrintList();
+//		System.out.println("After prepending 1 in the list:");
+//		doublyL.prepend(1);
+//		doublyL.PrintList();
+//		
+//		System.out.println("Get value of index 1 in the list:");
+//		int get = doublyL.get(1).value;
+//		System.out.println(get);
+//		
+//		System.out.println("Set value as 1 on index 1 in the list:");
+//		doublyL.set(1,1);
+//		doublyL.PrintList();
+//		
+//		System.out.println("Insert value 2 on index 2 in the list:");
+//		doublyL.insert(2,2);
+//		doublyL.PrintList();
+//		
+//		System.out.println("Remove value from index 2 in the list:");
+//		doublyL.remove(2);
+//		doublyL.PrintList();
 		
-		System.out.println("After removing first element in the list:");
-		doublyL.removeFirst();
-		doublyL.PrintList();
-		System.out.println("After removing last element in the list:");
-		doublyL.removeLast();
-		doublyL.PrintList();
-		System.out.println("After prepending 1 in the list:");
-		doublyL.prepend(1);
-		doublyL.PrintList();
 		
-		System.out.println("Get value of index 1 in the list:");
-		int get = doublyL.get(1).value;
-		System.out.println(get);
 		
-		System.out.println("Set value as 1 on index 1 in the list:");
-		doublyL.set(1,1);
-		doublyL.PrintList();
+//		//Stack
+//		Stack stack = new Stack(4);
+//		stack.push(6);
+//		stack.push(0);
+//		stack.pop();
+//		
+//		stack.printStack();
 		
-		System.out.println("Insert value 2 on index 2 in the list:");
-		doublyL.insert(2,2);
-		doublyL.PrintList();
+		//Queue
+		Queue queue = new Queue(0);
+		queue.enqueue(4);
+		queue.enqueue(3);
+		queue.dequeue();
 		
-		System.out.println("Remove value from index 2 in the list:");
-		doublyL.remove(2);
-		doublyL.PrintList();
+		queue.printQueue();
 	}
 }
