@@ -80,7 +80,7 @@ CREATE TABLE Employee (
 	WHERE Salary BETWEEN 50000 AND 100000);
 	
 23) Write an SQL query to fetch the no. of Employees for each department in descending order.
--> SELECT DEPARTMENT, count(Employee_ID) No_Of_Employees 
+-> SELECT DEPARTMENT, count(Employee_ID) As No_Of_Employees 
 	FROM Employee 
 	GROUP BY DEPARTMENT 
 	ORDER BY No_Of_Employees DESC;
