@@ -101,11 +101,23 @@ public class Main {
 //		stack.printStack();
 		
 		//Queue
-		Queue queue = new Queue(0);
-		queue.enqueue(4);
-		queue.enqueue(3);
-		queue.dequeue();
+//		Queue queue = new Queue(0);
+//		queue.enqueue(4);
+//		queue.enqueue(3);
+//		queue.dequeue();
+//		
+//		queue.printQueue();
 		
-		queue.printQueue();
+		
+		//BinarySearchTree
+		BinarySearchTree bst = new BinarySearchTree();
+		System.out.println("My first BST Node = " + bst.root);
+		bst.insert(47);
+		bst.insert(10);
+		bst.insert(5);
+		bst.insert(8);
+		bst.insert(55);
+		System.out.println("Position of root-left-left in bst = " + bst.root.left.left.value);
+		
 	}
 }
