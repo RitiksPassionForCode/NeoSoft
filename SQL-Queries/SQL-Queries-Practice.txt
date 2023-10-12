@@ -193,3 +193,18 @@ CREATE TABLE Employee (
 
 50) Write an SQL query to fetch the names of Employees who earn the highest salary.
 -> SELECT FIRST_NAME, SALARY from Employee WHERE SALARY=(SELECT max(SALARY) from Employee);
+
+51) Write query for inner join for two employee tables.
+-> SELECT Emp_Name, Emp_No, Emp_Profile, Emp_Country, Emp_Join_Date 
+FROM Tb1_Employee INNER JOIN Tb2_Employment 
+ON Tb1_Employee.Emp_ID=Tb2_Employment.Emp_ID;
+
+52) Write query for LEFT JOIN for two employee tables.
+-> SELECT Tb1_Employee.Emp_Name, Tb1_Employee.Emp_No, Tb2_Employment.Emp_Profile, Tb2_Employment.Emp_Country 
+FROM Tb1_Employee LEFT JOIN Tb2_Employment 
+ON Tb1_Employee.Emp_ID=Tb2_Employment.Emp_ID;
+
+53) Write query for Right Join for two employee tables.
+-> SELECT Tb1_Employee.Emp_Name, Tb1_Employee.Emp_No, Tb2_Employment.Emp_Profile, Tb2_Employment.Emp_Join_Date 
+FROM Tb1_Employee RIGHT JOIN Tb2_Employment 
+ON Tb1_Employee.Emp_ID=Tb2_Employment.Emp_ID;
