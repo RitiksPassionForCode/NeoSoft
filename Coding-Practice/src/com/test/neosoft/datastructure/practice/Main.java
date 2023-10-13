@@ -119,5 +119,8 @@ public class Main {
 		bst.insert(55);
 		System.out.println("Position of root-left-left in bst = " + bst.root.left.left.value);
 		
+		boolean contains5 = bst.contains(5);
+		boolean contains11 = bst.contains(11);
+		System.out.println("Contains5- " + contains5 + " Contains11- " + contains11);
 	}
 }
