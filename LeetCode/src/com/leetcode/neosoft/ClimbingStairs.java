@@ -21,7 +21,6 @@ public class ClimbingStairs {
 	public static void main(String[] args) {
 		int climbStairs = climbStairs(3);
 		System.out.println(climbStairs);
-
 	}
 
 }
